@@ -21,6 +21,7 @@ class Ctr_database extends Ctr_controleur
         $nbprofil = Database::genererProfil();
         $nblecon = Database::genererLecon(); 
         $nbcategorie = Database::genererCategorie(); 
+        $nbappartenir = Database::genererAppartenir(); 
         require $this->gabarit;
     }
 }

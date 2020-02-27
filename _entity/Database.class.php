@@ -61,4 +61,19 @@ class Database
 
         return Entity::$link->exec($sql . implode(",", $data));
     }
+
+    static public function genererAppartenir(): int
+    {
+        $sql = "insert into appartenir values ";
+        $data = [];
+        $data[] = "(null,1,1)";
+        $data[] = "(null,1,2)";
+        $data[] = "(null,2,2)";
+        $data[] = "(null,3,2)";
+        $data[] = "(null,3,3)";
+        $data[] = "(null,4,4)";
+
+        return Entity::$link->exec($sql . implode(",", $data));
+    }
 }
+

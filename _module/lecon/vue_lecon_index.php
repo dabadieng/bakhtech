@@ -6,6 +6,7 @@
 
     			<th>Id</th>
     			<th>Libelle</th>
+    			<th>modifier</th>
     			<th>supprimer</th>
     		</tr>
     	</thead>
@@ -16,9 +17,11 @@
     			<tr>
 
     				<td><?= mhe($row['lec_id']) ?></td>
-    				<td><?= mhe($row['lec_libelle']) ?></td><a class="btn btn-warning" href="<?= hlien("lecon", "edit", "id", $row["lec_id"]) ?>">Modifier</a></td>
+					<td><a href="fichier/<?= mhe($row['lec_id']) ?>.html"><?= mhe($row['lec_libelle']) ?></a></td>
+    				<td><a class="btn btn-warning" href="<?= hlien("lecon", "edit", "id", $row["lec_id"]) ?>">Modifier</a></td>
     				<td><a class="btn btn-danger" href="<?= hlien("lecon", "del", "id", $row["lec_id"]) ?>">Supprimer</a></td>
     			</tr>
     		<?php } ?>
     	</tbody>
     </table>
+    

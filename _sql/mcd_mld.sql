@@ -17,9 +17,16 @@
         lecon
             -id
             -libelle
+            -src
+
+
+        fichier 
+            -id
+            -nom (alt)
+            
 
         <ASSOCIATION>
-            rattaché 
+            posséde  
                 utilisateur 1,1
                 profil 1,n 
             
@@ -30,6 +37,11 @@
             consulter (date de validité )
                 utilisateur 1,n 
                 lecon 1,n 
+
+            rattaché 
+                fichier 1,1 
+                lecon 1,n
+
 
             
         </ASSOCIATION>
@@ -56,7 +68,7 @@
         lecon
             -id (PK)
             -libelle
-            -catégorie (FK)
+            -src
         
         consulter 
             -id (PK)
@@ -68,6 +80,11 @@
             -id
             -lecon (FK)
             -catégorie (FK)
+
+        fichier
+            -id 
+            -nom
+            -lecon (FK)
         
 
     </TABLES>

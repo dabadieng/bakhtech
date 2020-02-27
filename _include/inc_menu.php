@@ -7,7 +7,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li><a class='nav-link' href='<?=hlien("categorie","index")?>'>Categorie</a></li>
+      <li><a class='nav-link' href='<?=hlien("appartenir","index")?>'>Appartenir</a></li>
+<li><a class='nav-link' href='<?=hlien("categorie","index")?>'>Categorie</a></li>
+<li><a class='nav-link' href='<?=hlien("fichier","index")?>'>Fichier</a></li>
 <li><a class='nav-link' href='<?=hlien("lecon","index")?>'>Lecon</a></li>
 <li><a class='nav-link' href='<?=hlien("profil","index")?>'>Profil</a></li>
 <li><a class='nav-link' href='<?=hlien("utilisateur","index")?>'>Utilisateur</a></li>
