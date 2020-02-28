@@ -30,12 +30,12 @@ class Ctr_fichier extends Ctr_controleur
 			$fic_src = 'D:\informatique\2-PHP\tuto\mvc\bakhtech\www\fichier/' . $fic_id . ".html";
 			$file = $_FILES['fic_src']['tmp_name'];
 			move_uploaded_file($file, $fic_src);
-			
+
 			//  if (is_uploaded_file($_FILES['monfichier']['tmp_name'])) {
 			//		$fichier=$_FILES['monfichier']['name'];
 			//		move_uploaded_file($_FILES['monfichier']['tmp_name'],"doc/" . $fichier);
-	}
-			 
+
+
 
 			$u = new Fichier();
 			$u->chargerDepuisTableau($_POST);
