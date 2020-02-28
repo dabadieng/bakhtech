@@ -24,8 +24,7 @@ CREATE TABLE categorie(
 DROP TABLE IF EXISTS lecon;
 CREATE TABLE lecon(
     lec_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    lec_libelle VARCHAR(2000),
-    lec_src VARCHAR(2000)
+    lec_libelle VARCHAR(2000)
   ) ENGINE = innoDB;
 DROP TABLE IF EXISTS appartenir;
 CREATE TABLE appartenir(
@@ -39,6 +38,7 @@ CREATE TABLE fichier(
     fic_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     fic_nom VARCHAR(50),
     fic_src VARCHAR(50),
+    fic_extension varchar(10), 
     fic_lecon int
   ) ENGINE = innoDB;
 

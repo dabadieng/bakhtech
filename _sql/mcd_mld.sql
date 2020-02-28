@@ -17,7 +17,6 @@
         lecon
             -id
             -libelle
-            -src
 
 
         fichier 
@@ -68,13 +67,12 @@
         lecon
             -id (PK)
             -libelle
-            -src
         
         consulter 
             -id (PK)
             -date_de_validation
             -lecon (FK)
-            -utilisateur (FK)
+            -utilisateur (FK) 
 
         appartenir 
             -id

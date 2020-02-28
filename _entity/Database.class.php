@@ -75,5 +75,21 @@ class Database
 
         return Entity::$link->exec($sql . implode(",", $data));
     }
-}
 
+    static public function genererFichier(): int
+    {
+        $sql = "insert into fichier values ";
+        $data = [];
+        $tab = ["mp3", "mp4", "jpg", "png"];
+        for ($i = 1; $i < 10; $i++) {
+            $nom = "mon_fichier n°$i";
+            $extension = $tab[rand(0, 3)];
+            $lecon = rand(1, 4);
+            //$src = "<a href='fichier/".$lecon.".".$extension."'></a>";
+            $src= "01.html"; 
+            $data[] = "(null,'$nom','$src','$extension','$lecon')";
+        }
+
+        return Entity::$link->exec($sql . implode(",", $data));
+    }
+}
