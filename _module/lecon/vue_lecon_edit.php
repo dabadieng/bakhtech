@@ -4,7 +4,8 @@
                 <label for='lec_libelle'>Libelle</label>
                 <input id='lec_libelle' name='lec_libelle' type='text' size='50' value='<?= mhe($lec_libelle) ?>' class='form-control' />
             </div>
-            <div id="choix">
+
+            <div id="choix" <?php if ($id != 0) echo "style='display:none'" ?>>
 
                 <p>
                     <label for='Dys'>Dys</label>
@@ -34,3 +35,6 @@
             </div>
             <input class="btn btn-success" type="submit" name="btSubmit" value="Enregistrer" />
         </form>
+        <script>
+
+        </script>
