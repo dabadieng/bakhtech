@@ -25,11 +25,14 @@ class Ctr_fichier extends Ctr_controleur
 	function a_edit()
 	{
 		if (isset($_POST["btSubmit"])) {
-			extract($_POST);
+			extract($_POST); 
+			var_dump($_POST); 
 
-			$fic_src = 'D:\informatique\2-PHP\tuto\mvc\bakhtech\www\fichier/' . $fic_id . ".html";
-			$file = $_FILES['fic_src']['tmp_name'];
-			move_uploaded_file($file, $fic_src);
+			$fic_src = "D:\informatique\2-PHP\tuto\mvc\bakhtech\www\fichier\$fic_id"; 
+			//echo "$fic_src"; 
+
+			//$file = $_FILES['fic_src']['tmp_name'];
+			//move_uploaded_file($file, $fic_src);
 
 			//  if (is_uploaded_file($_FILES['monfichier']['tmp_name'])) {
 			//		$fichier=$_FILES['monfichier']['name'];
@@ -41,7 +44,7 @@ class Ctr_fichier extends Ctr_controleur
 			$u->chargerDepuisTableau($_POST);
 			$u->sauver();
 
-			header("location:index.php?m=fichier");
+			//header("location:index.php?m=fichier");
 		} else {
 			$id = isset($_GET["id"]) ? $_GET["id"] : 0;
 			$u = new Fichier($id);
