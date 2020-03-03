@@ -30,30 +30,39 @@ class Ctr_fichier extends Ctr_controleur
 	function a_edit()
 	{
 		if (isset($_POST["btSubmitFichier"])) {
-			var_dump($_POST);
-			var_dump($_FILES);
+			//var_dump($_POST);
+			//var_dump($_FILES);
 
+			// chargement d'un fichier dans la base 
 			extract($_POST);
 			$f = new Fichier();
 			$f->chargerDepuisTableau($_POST);
 			$f->sauver();
 
+			// chargement de ce fichier dans l'arborescence 
 			if (is_uploaded_file($_FILES['fic_src']['tmp_name'])) {
-				echo "ok"; 
 				$fichier = $_FILES['fic_src']['name'];
-				move_uploaded_file($_FILES['fic_src']['tmp_name'], "D:/informatique/2-PHP/tuto/mvc/bakhtech/www/fichier/" . $fic_nom);
+				move_uploaded_file($_FILES['fic_src']['tmp_name'], "D:/informatique/2-PHP/tuto/mvc/bakhtech/www/fichier/" . $f->data["fic_lecon"] . "." . $fic_extension);
 			}
 
+			//maj des catégories 
+			$a = new Appartenir(); 
 
-			//header("location:index.php?m=fichier");
+
+			header("location:index.php?m=fichier");
 		} else if (isset($_POST["btSubmit"])) {
 			extract($_POST);
-			var_dump($_POST);
 
 
 			$u = new Fichier();
 			$u->chargerDepuisTableau($_POST);
 			$u->sauver();
+
+			if (is_uploaded_file($_FILES['fic_src']['tmp_name'])) {
+				$fichier = $_FILES['fic_src']['name'];
+				move_uploaded_file($_FILES['fic_src']['tmp_name'], "D:/informatique/2-PHP/tuto/mvc/bakhtech/www/fichier/" . $f->data["fic_lecon"] . "." . $fic_extension);
+			}
+
 
 			//header("location:index.php?m=fichier");
 		} else {

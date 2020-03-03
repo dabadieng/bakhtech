@@ -38,7 +38,7 @@ class Ctr_lecon extends Ctr_controleur
 
 
 
-			header("location:index.php?m=lecon");
+			//header("location:index.php?m=lecon");
 			//header("location:index.php?m=fichier&a=edit");
 
 

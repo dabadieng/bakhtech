@@ -24,13 +24,13 @@
          </p>
 
          <p>
-             <label for='Mental_Cognitif'>Mental_Cognitif</label>
-             <input type='checkbox' name='Mental_Cognitif' id='Mental_Cognitif' <?= isset($Mental_Cognitif) ? 'checked' : '' ?>>
+             <label for='MentalCognitif'>Mental_Cognitif</label>
+             <input type='checkbox' name='MentalCognitif' id='MentalCognitif' <?= isset($MentalCognitif) ? 'checked' : '' ?>>
          </p>
 
          <p>
-             <label for='Sourds_Malentendants'>Sourds_Malentendants</label>
-             <input type='checkbox' name='Sourds_Malentendants' id='Sourds_Malentendants' <?= isset($Sourds_Malentendants) ? 'checked' : '' ?>>
+             <label for='SourdsMalentendants'>Sourds_Malentendants</label>
+             <input type='checkbox' name='SourdsMalentendants' id='SourdsMalentendants' <?= isset($SourdsMalentendants) ? 'checked' : '' ?>>
          </p>
 
      </div>
@@ -52,8 +52,9 @@
 
 
      <form enctype="multipart/form-data" method="post" id="choix" style="display:none" action="<?= hlien("fichier", "edit") ?>">
+     
          <input type="hidden" name="fic_id" id="fic_id" value=0 />
-         <input type="hidden" name="fic_lecon" id="fic_lecon" value="<?= $fic_lecon ?>" />
+         <input type="hidden" name="fic_lecon" id="fic_lecon" value="<?= $lec_id ?>" />
 
          <div class='form-group'>
              <label for='fic_nom'>Nom</label>
@@ -61,7 +62,7 @@
          </div>
          <div class='form-group'>
              <label for='fic_src'>Src</label>
-             <input id='fic_src' name='fic_src' type='file' />
+             <input id='fic_src' name='fic_src' type='file' accept=".doc, .docx, .txt, .rtf, .pdf, .prc, .mobi, .epub" />
          </div>
          <div class='form-group'>
              <label for='fic_extension'>Extension</label>
@@ -76,7 +77,6 @@
          let lec_id = document.getElementById("lec_id");
          let fic_lecon = document.getElementById("fic_lecon");
 
-         
 
 
          function ajouter() {

@@ -10,8 +10,8 @@
 <fieldset>
     <form method="post">
         <p>
-            <label for="uti_nom">votre Dénomination ou Nom : </label>
-            <input type="text" name="uti_nom" id="uti_nom">
+            <label for="uti_id">votre identifiant : </label>
+            <input type="text" name="uti_id" id="uti_id">
         </p>
         <p>
             <label for="uti_mdp">votre mot de passe : </label>
