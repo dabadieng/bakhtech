@@ -27,6 +27,6 @@
     				<td><a class="btn btn-warning" href="<?= hlien("fichier", "edit", "id", $row["fic_id"]) ?>">Modifier</a></td>
     				<td><a class="btn btn-danger" href="<?= hlien("fichier", "del", "id", $row["fic_id"]) ?>">Supprimer</a></td>
     			</tr>
-    		<?php } ?>
+    		<?php } ?> 
     	</tbody>
     </table>

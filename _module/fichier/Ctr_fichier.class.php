@@ -15,6 +15,11 @@ class Ctr_fichier extends Ctr_controleur
 		$this->$a();
 	}
 
+	public function functionName()
+	{
+		throw new Exception('Method not implemented');
+	}
+
 	function a_index()
 	{
 		$result = Fichier::findAll("fichier");
@@ -24,20 +29,26 @@ class Ctr_fichier extends Ctr_controleur
 	//$_GET["id"] : id de l'enregistrement
 	function a_edit()
 	{
-		if (isset($_POST["btSubmit"])) {
-			extract($_POST); 
-			var_dump($_POST); 
+		if (isset($_POST["btSubmitFichier"])) {
+			var_dump($_POST);
+			var_dump($_FILES);
 
-			$fic_src = "D:\informatique\2-PHP\tuto\mvc\bakhtech\www\fichier\$fic_id"; 
-			//echo "$fic_src"; 
+			extract($_POST);
+			$f = new Fichier();
+			$f->chargerDepuisTableau($_POST);
+			$f->sauver();
 
-			//$file = $_FILES['fic_src']['tmp_name'];
-			//move_uploaded_file($file, $fic_src);
+			if (is_uploaded_file($_FILES['fic_src']['tmp_name'])) {
+				echo "ok"; 
+				$fichier = $_FILES['fic_src']['name'];
+				move_uploaded_file($_FILES['fic_src']['tmp_name'], "D:/informatique/2-PHP/tuto/mvc/bakhtech/www/fichier/" . $fic_nom);
+			}
 
-			//  if (is_uploaded_file($_FILES['monfichier']['tmp_name'])) {
-			//		$fichier=$_FILES['monfichier']['name'];
-			//		move_uploaded_file($_FILES['monfichier']['tmp_name'],"doc/" . $fichier);
 
+			//header("location:index.php?m=fichier");
+		} else if (isset($_POST["btSubmit"])) {
+			extract($_POST);
+			var_dump($_POST);
 
 
 			$u = new Fichier();

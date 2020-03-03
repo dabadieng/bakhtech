@@ -24,13 +24,7 @@ class Ctr_lecon extends Ctr_controleur
 	//$_GET["id"] : id de l'enregistrement
 	function a_edit()
 	{
-		//recupère les fichiers rattachés à la leçon 
-		//$result=Fichier::fichierById($id); 
-
-		if (isset($_POST["btSubmitFichier"])) {
-			extract($_POST); 
-
-		} else if (isset($_POST["btSubmit"])) {
+		if (isset($_POST["btSubmit"])) {
 			var_dump($_POST);
 
 			$u = new Lecon();
@@ -51,11 +45,11 @@ class Ctr_lecon extends Ctr_controleur
 
 		} else {
 			$id = isset($_GET["id"]) ? $_GET["id"] : 0;
-			$result=Fichier::fichierById($id); 
+			$result = Fichier::fichierById($id);
 			$u = new Lecon($id);
 			extract($u->data);
-			$f=new Fichier(); 
-			extract($f->data); 
+			$f = new Fichier();
+			extract($f->data);
 			require $this->gabarit;
 		}
 	}

@@ -51,20 +51,21 @@
      <?php } ?>
 
 
-     <form method="post" id="choix" style="display:none" action="<?= hlien("fichier", "edit") ?>">
-         <input type="hidden" name="fic_id" id="fic_id" value="<?= $id ?>" />
+     <form enctype="multipart/form-data" method="post" id="choix" style="display:none" action="<?= hlien("fichier", "edit") ?>">
+         <input type="hidden" name="fic_id" id="fic_id" value=0 />
          <input type="hidden" name="fic_lecon" id="fic_lecon" value="<?= $fic_lecon ?>" />
+
          <div class='form-group'>
              <label for='fic_nom'>Nom</label>
              <input id='fic_nom' name='fic_nom' type='text' size='50' value='<?= mhe($fic_nom) ?>' class='form-control' />
          </div>
          <div class='form-group'>
              <label for='fic_src'>Src</label>
-             <input id='fic_src' name='fic_src' type='file' size='50' value='<?= mhe($fic_src) ?>' class='form-control' />
+             <input id='fic_src' name='fic_src' type='file' />
          </div>
          <div class='form-group'>
              <label for='fic_extension'>Extension</label>
-             <input id='fic_extension' name='fic_extension' type='hidden' size='50' value='<?= mhe($fic_extension) ?>' class='form-control' />
+             <input id='fic_extension' name='fic_extension' type='type' size='50' value='<?= mhe($fic_extension) ?>' class='form-control' />
          </div>
 
 
@@ -72,10 +73,15 @@
      </form>
      <script>
          let choix = document.getElementById("choix");
+         let lec_id = document.getElementById("lec_id");
+         let fic_lecon = document.getElementById("fic_lecon");
+
+         
+
 
          function ajouter() {
              $("#choix").toggle();
              $("#contenu").toggle();
-             $("#fichier").toggle(); 
+             $("#fichier").toggle();
          }
      </script>
