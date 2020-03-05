@@ -14,6 +14,12 @@ class Database
     {
         $sql = "insert into utilisateur values ";
         $data = [];
+        $uti_nom = "daba";
+        $uti_mail = "daba@gmail.com"; 
+        $mdp = "1234"; 
+        $uti_mdp = password_hash($mdp, PASSWORD_ARGON2I);
+        $uti_profil = 1;
+        $data[] = "(null,'$uti_nom','$uti_mail','$uti_mdp','$uti_profil')";
         for ($i = 1; $i <= $nbuser; $i++) {
             $uti_nom = "nom n°$i";
             $uti_mail = $uti_nom . "_" . $i . "@mail.fr";
@@ -86,7 +92,7 @@ class Database
             $extension = $tab[rand(0, 3)];
             $lecon = rand(1, 4);
             //$src = "<a href='fichier/".$lecon.".".$extension."'></a>";
-            $src= "01.html"; 
+            $src = "01.html";
             $data[] = "(null,'$nom','$src','$extension','$lecon')";
         }
 

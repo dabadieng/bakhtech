@@ -28,8 +28,10 @@ class Ctr_authentification extends Ctr_controleur
 
                 header("location:" . hlien("lecon", "index"));
             } else {
-                $message = "Identifiant inconnu";
-                require $this->gabarit;
+                $u=new Utilisateur(); 
+                $_POST["uti_mdp"] = password_hash($uti_mdp); 
+                $u->chargerDepuisTableau($_POST); 
+                $u->sauver(); 
             }
         } else {
             require $this->gabarit;

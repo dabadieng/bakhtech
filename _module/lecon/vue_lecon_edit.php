@@ -6,44 +6,18 @@
          <input id='lec_libelle' name='lec_libelle' type='text' size='50' value='<?= mhe($lec_libelle) ?>' class='form-control' />
      </div>
 
-     <div id="theme">
+     
+     <input class="btn btn-success" type="submit" name="btSubmit" value="Valider" />
 
-         <p>
-             <label for='Dys'>Dys</label>
-             <input type='checkbox' name='Dys' id='Dys' <?= isset($Dys) ? 'checked' : '' ?>>
-         </p>
-
-         <p>
-             <label for='Moteur'>Moteur</label>
-             <input type='checkbox' name='Moteur' id='Moteur' <?= isset($Moteur) ? 'checked' : '' ?>>
-         </p>
-
-         <p>
-             <label for='Visuel'>Visuel</label>
-             <input type='checkbox' name='Visuel' id='Visuel' <?= isset($Visuel) ? 'checked' : '' ?>>
-         </p>
-
-         <p>
-             <label for='MentalCognitif'>Mental_Cognitif</label>
-             <input type='checkbox' name='MentalCognitif' id='MentalCognitif' <?= isset($MentalCognitif) ? 'checked' : '' ?>>
-         </p>
-
-         <p>
-             <label for='SourdsMalentendants'>Sourds_Malentendants</label>
-             <input type='checkbox' name='SourdsMalentendants' id='SourdsMalentendants' <?= isset($SourdsMalentendants) ? 'checked' : '' ?>>
-         </p>
-
-     </div>
-
-     <input class="btn btn-success" type="submit" name="btSubmit" value="Modifier" />
+     <?php if ($id != 0) { ?>
 
  </form>
  <button id="fichier" style="display: block" onclick="ajouter()">Inserer des fichiers</button>
 
  <div id="contenu" style="display:none">
      <?php
-        foreach ($result as $row) {
-            extract($row); ?>
+            foreach ($result as $row) {
+                extract($row); ?>
          <ul>
              <li> <?= $fic_src ?> <a href="<?= hlien("fichier", "del", "id", $row["fic_id"]) ?>">Supprimer</a></li>
          </ul>
@@ -52,7 +26,7 @@
 
 
      <form enctype="multipart/form-data" method="post" id="choix" style="display:none" action="<?= hlien("fichier", "edit") ?>">
-     
+
          <input type="hidden" name="fic_id" id="fic_id" value=0 />
          <input type="hidden" name="fic_lecon" id="fic_lecon" value="<?= $lec_id ?>" />
 
@@ -72,16 +46,18 @@
 
          <input class="btn btn-success" type="submit" name="btSubmitFichier" value="Ajouter des fichiers" />
      </form>
-     <script>
-         let choix = document.getElementById("choix");
-         let lec_id = document.getElementById("lec_id");
-         let fic_lecon = document.getElementById("fic_lecon");
+ <?php } ?>
+
+ <script>
+     let choix = document.getElementById("choix");
+     let lec_id = document.getElementById("lec_id");
+     let fic_lecon = document.getElementById("fic_lecon");
 
 
 
-         function ajouter() {
-             $("#choix").toggle();
-             $("#contenu").toggle();
-             $("#fichier").toggle();
-         }
-     </script>
+     function ajouter() {
+         $("#choix").toggle();
+         $("#contenu").toggle();
+         $("#fichier").toggle();
+     }
+ </script>

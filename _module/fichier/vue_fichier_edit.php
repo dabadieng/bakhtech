@@ -1,4 +1,4 @@
-<form enctype="multipart/form-data" method="post" id="choix" style="display:none" action="<?= hlien("fichier", "edit") ?>">
+<form enctype="multipart/form-data" method="post" id="choix" style="display:block">
     <input type="hidden" name="fic_id" id="fic_id" value="<?= $id ?>" />
     <input type="hidden" name="fic_lecon" id="fic_lecon" value="<?= $fic_lecon ?>" />
     <div class='form-group'>

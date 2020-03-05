@@ -45,8 +45,6 @@ class Ctr_fichier extends Ctr_controleur
 				move_uploaded_file($_FILES['fic_src']['tmp_name'], "D:/informatique/2-PHP/tuto/mvc/bakhtech/www/fichier/" . $f->data["fic_lecon"] . "." . $fic_extension);
 			}
 
-			//maj des catégories 
-			$a = new Appartenir(); 
 
 
 			header("location:index.php?m=fichier");
@@ -64,7 +62,7 @@ class Ctr_fichier extends Ctr_controleur
 			}
 
 
-			//header("location:index.php?m=fichier");
+			header("location:index.php?m=fichier");
 		} else {
 			$id = isset($_GET["id"]) ? $_GET["id"] : 0;
 			$u = new Fichier($id);
