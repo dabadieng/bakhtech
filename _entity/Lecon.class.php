@@ -8,7 +8,7 @@ class Lecon extends Entity
 
 	static function findAll($table)
 	{
-		$sql = "select * from appartenir, lecon where app_lecon=lec_id";
+		$sql = "select * from lecon ";
 		$result = self::$link->query($sql);
 		return $result->fetchAll();
 	}

@@ -1,6 +1,6 @@
 	<h2>lecon</h2>
 	<button id="btn" onclick="filtrage()">Filtrer</button>
-	<div id="choix">
+	<div id="choix" style="display: none">
 		<p>
 			<label for='Dys'>Dys</label>
 			<input type='checkbox' name='unCheck' id='Dys' <?= isset($Dys) ? 'checked' : '' ?>>
@@ -49,7 +49,7 @@
 				<tr class="<?= Lecon::motCle($lec_id) ?>">
 				
 					<td><?= mhe($row['lec_id']) ?></td>
-					<td><a href="fichier/<?= mhe($row['lec_id']) ?>.html"><?= mhe($row['lec_libelle']) ?></a><?php echo Lecon::motCle($lec_id)?></td>
+					<td><a href="fichier/<?= mhe($row['lec_id']) ?>.html"><?= mhe($row['lec_libelle']) ?></a></td>
 					<?php if (isset($_SESSION["id"]) and ($_SESSION["pro_id"] == 1 || $_SESSION["pro_id"] == 2)) { ?>
 						<td><a class="btn btn-warning" href="<?= hlien("lecon", "edit", "id", $row["lec_id"]) ?>">Modifier</a></td>
 						<td><a class="btn btn-danger" href="<?= hlien("lecon", "del", "id", $row["lec_id"]) ?>">Supprimer</a></td>
@@ -84,5 +84,9 @@
 					});
 				}
 			});
+		}
+
+		function filtrage() {
+			$("#choix").toggle(); 
 		}
 	</script>

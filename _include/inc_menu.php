@@ -22,8 +22,8 @@
       <?php if (isset($_SESSION["id"])) { ?>
         <li><a class="nav-link" href=""><?= $_SESSION["nom"] ?> &nbsp;<span class="badge badge-info">[<?= $_SESSION["profil"] ?>]</span></a></li>
       <?php } ?>
-      <!--<li><a class="nav-link" href="<?= hlien("database", "creer") ?>">Créer BDD</a></li>
-    <li><a class="nav-link" href='<?= hlien("database", "dataset") ?>'>Jeu de données</a></li>-->
+      <li><a class="nav-link" href="<?= hlien("database", "creer") ?>">Créer BDD</a></li>
+    <li><a class="nav-link" href='<?= hlien("database", "dataset") ?>'>Jeu de données</a></li>
       <?php if (isset($_SESSION["id"])) { ?>
         <li><a class="nav-link" href="<?= hlien("authentification", "deconnexion") ?>">Déconnexion</a></li>
       <?php } else { ?>
