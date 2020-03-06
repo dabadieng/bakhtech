@@ -26,7 +26,7 @@ class Ctr_lecon extends Ctr_controleur
 	{
 		if (isset($_POST["btSubmit"])) {
 			extract($_POST);
-			var_dump($_POST);
+			//var_dump($_POST);
 			//var_dump($_FILES);
 
 			$u = new Lecon();
@@ -35,7 +35,7 @@ class Ctr_lecon extends Ctr_controleur
 
 			// chargement d'un fichier dans la base 
 			$_POST["fic_lecon"] = $u->data["lec_id"]; 
-			var_dump($_POST); 
+			//var_dump($_POST); 
 			$f = new Fichier();
 			$f->chargerDepuisTableau($_POST);
 			$f->sauver();
@@ -55,7 +55,7 @@ class Ctr_lecon extends Ctr_controleur
 
 
 			header("location:index.php?m=lecon");
-			
+
 		} else {
 			$id = isset($_GET["id"]) ? $_GET["id"] : 0;
 			$result = Fichier::fichierById($id);

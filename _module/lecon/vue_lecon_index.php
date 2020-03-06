@@ -45,9 +45,9 @@
 			<?php
 			foreach ($result as $row) {
 				extract($row); ?>
-				
+
 				<tr class="<?= Lecon::motCle($lec_id) ?>">
-				
+
 					<td><?= mhe($row['lec_id']) ?></td>
 					<td><a href="fichier/<?= mhe($row['lec_id']) ?>.html"><?= mhe($row['lec_libelle']) ?></a></td>
 					<?php if (isset($_SESSION["id"]) and ($_SESSION["pro_id"] == 1 || $_SESSION["pro_id"] == 2)) { ?>
@@ -58,35 +58,4 @@
 			<?php } ?>
 		</tbody>
 	</table>
-	<script>
-		let listeInput = document.querySelectorAll("input[type=checkbox]");
-		listeInput.forEach(elt => {
-			elt.checked = true;
-			elt.addEventListener("click", afficheAlltr);
-		});
-		console.log(listeInput); 
-
-		let matable = document.getElementById("contenue");
-		let listetr = matable.querySelectorAll("tr");
-
-		function affichetr(tr, cle) {
-			if (tr.className.includes(cle))
-				tr.style.display = "table-row";
-		}
-
-		function afficheAlltr(e) {
-			listetr.forEach(tr => tr.style.display = "none");
-
-			listeInput.forEach(elt => {
-				if (elt.checked) {
-					listetr.forEach(tr => {
-						affichetr(tr, elt.id);
-					});
-				}
-			});
-		}
-
-		function filtrage() {
-			$("#choix").toggle(); 
-		}
-	</script>
+	<script src="_js/lecon.js"></script>
